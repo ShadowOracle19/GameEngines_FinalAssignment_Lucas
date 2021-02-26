@@ -53,4 +53,9 @@ public class InputManager : MonoBehaviour
     {
         return playerController.Player.Jump.triggered;
     }
+
+    public bool PlayerPressedPickup()
+    {
+        return playerController.Player.Pickup.triggered;
+    }
 }
