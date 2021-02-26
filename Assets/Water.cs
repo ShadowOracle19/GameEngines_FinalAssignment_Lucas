@@ -6,6 +6,8 @@ public class Water : MonoBehaviour
 {
     public Ingrediants ingrediant;
 
+    public List<Ingrediants> currentIngrediantsAdded = new List<Ingrediants>();
+
     public Color currentColor;
 
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class Water : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         ingrediant = other.GetComponent<currentIngrediant>().getCurrentIngrediant();
+        currentIngrediantsAdded.Add(ingrediant);
         StartCoroutine(changeWaterColor());
         Destroy(other, 1);
     }
