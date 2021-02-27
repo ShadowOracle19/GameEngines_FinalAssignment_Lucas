@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Blue Flower
-  ingrediantPrefab: {fileID: 6169526799898871889, guid: 367735298eb166d4fa3c07185d5a8389, type: 3}
-  color: {r: 0, g: 0.047268867, b: 1, a: 0.3137255}
+  ingrediantPrefab: {fileID: 2043214304242162952, guid: 367735298eb166d4fa3c07185d5a8389, type: 3}
+  color: {r: 0, g: 0.047268867, b: 1, a: 1}

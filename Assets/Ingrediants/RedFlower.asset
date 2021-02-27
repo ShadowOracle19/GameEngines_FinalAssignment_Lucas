@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: RedFlower
-  ingrediantPrefab: {fileID: 8794659282511177333, guid: eebf56396c5561c44bb696b25035abf2, type: 3}
-  color: {r: 1, g: 0, b: 0, a: 0.3137255}
+  ingrediantPrefab: {fileID: 8279634855321804537, guid: 0ade2e366559b844b9ee38f05be2aaf9, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 1}

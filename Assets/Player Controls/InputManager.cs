@@ -58,4 +58,9 @@ public class InputManager : MonoBehaviour
     {
         return playerController.Player.Pickup.triggered;
     }
+
+    public bool PlayerPressedReset()
+    {
+        return playerController.Player.ResetCauldron.triggered;
+    }
 }

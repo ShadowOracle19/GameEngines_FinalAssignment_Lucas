@@ -49,6 +49,14 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ResetCauldron"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ad8da31-16fb-4447-8c52-97b52938f5ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,17 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec6cec34-2b14-4522-b280-3670033697d0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetCauldron"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -151,6 +170,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
+        m_Player_ResetCauldron = m_Player.FindAction("ResetCauldron", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,6 +224,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Pickup;
+    private readonly InputAction m_Player_ResetCauldron;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -212,6 +233,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
+        public InputAction @ResetCauldron => m_Wrapper.m_Player_ResetCauldron;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +255,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Pickup.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
                 @Pickup.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
                 @Pickup.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
+                @ResetCauldron.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
+                @ResetCauldron.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
+                @ResetCauldron.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -249,6 +274,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Pickup.started += instance.OnPickup;
                 @Pickup.performed += instance.OnPickup;
                 @Pickup.canceled += instance.OnPickup;
+                @ResetCauldron.started += instance.OnResetCauldron;
+                @ResetCauldron.performed += instance.OnResetCauldron;
+                @ResetCauldron.canceled += instance.OnResetCauldron;
             }
         }
     }
@@ -259,5 +287,6 @@ public class @PlayerController : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
+        void OnResetCauldron(InputAction.CallbackContext context);
     }
 }
