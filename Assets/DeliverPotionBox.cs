@@ -7,9 +7,10 @@ public class DeliverPotionBox : MonoBehaviour
     bool potionInBox;
     public bool readyToDeliverPotion;
     public Water water;
-    GameObject potion;
+    PotionBottle potion;
     public float points = 100;
     Color potionColor;
+    public float r, g, b, totalPoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,8 @@ public class DeliverPotionBox : MonoBehaviour
         if(other.gameObject.CompareTag("Potion"))
         {
             potionInBox = true;
-            potion = other.gameObject;
-            potionColor = potion.GetComponent<Renderer>().material.GetColor("_Color");
+            potion = other.gameObject.GetComponent<PotionBottle>();
+            potionColor = potion.potionFillColor;
         }
         
     }
@@ -40,7 +41,7 @@ public class DeliverPotionBox : MonoBehaviour
     {
         potionInBox = false;
         potion = null;
-        potionColor = Color.white;
+        
     }
 
     public void DeliverPotion()
@@ -48,8 +49,8 @@ public class DeliverPotionBox : MonoBehaviour
         if(readyToDeliverPotion)
         {
             CalculateColors(potionColor, water.objective);
-            Debug.Log(points.ToString());
-            Destroy(potion, 2);
+            
+            Destroy(potion.gameObject, 2);
             readyToDeliverPotion = false;
             potionInBox = false;
         }
@@ -60,7 +61,15 @@ public class DeliverPotionBox : MonoBehaviour
         Color32 c132 = c1;
         Color32 c232 = c2;
         
-        points = (c132.r - c232.r) + (c132.g - c232.g) + (c132.b - c232.b);
+
+        r = Mathf.Abs(c232.r - c132.r);
+        g = Mathf.Abs(c232.g - c132.g);
+        b = Mathf.Abs(c232.b - c132.b);
+        totalPoints = r + g + b;
+        points = (totalPoints / 765.0f) * 100f;
+        points = Mathf.Round(points);
+        Debug.Log(points.ToString());
+        //points = (c232.r - c132.r) + (c232.g - c132.g) + (c232.b - c132.b);
     }
    
 }
