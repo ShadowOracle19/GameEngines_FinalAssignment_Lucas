@@ -56,7 +56,7 @@ public class Water : MonoBehaviour
 
     public void BrewPotion()
     {
-        if(currentIngrediantsAdded.Count >= 2)
+        if(currentIngrediantsAdded.Count >= 1)
         {
             Instantiate(PotionPrefab, new Vector3(
                 potionSpawnPoint.position.x, 
