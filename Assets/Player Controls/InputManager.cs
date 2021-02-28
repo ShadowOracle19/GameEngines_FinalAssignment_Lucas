@@ -63,4 +63,9 @@ public class InputManager : MonoBehaviour
     {
         return playerController.Player.ResetCauldron.triggered;
     }
+    
+    public bool PlayerPressedPause()
+    {
+        return playerController.Player.Pause.triggered;
+    }
 }

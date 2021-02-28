@@ -7,6 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void OnPlayButton()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Game");
     }
 

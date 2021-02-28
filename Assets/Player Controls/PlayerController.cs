@@ -57,6 +57,14 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""16bfab20-0926-41b0-8423-f7fd5098ee3f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -158,6 +166,28 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""action"": ""ResetCauldron"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71f8968d-aad9-4b1f-a275-b2217872462d"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""655f1c31-5622-4bb7-8e11-1dfe15fb7cb8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -171,6 +201,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_ResetCauldron = m_Player.FindAction("ResetCauldron", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -225,6 +256,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_ResetCauldron;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -234,6 +266,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @ResetCauldron => m_Wrapper.m_Player_ResetCauldron;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +291,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @ResetCauldron.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
                 @ResetCauldron.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
                 @ResetCauldron.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetCauldron;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -277,6 +313,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @ResetCauldron.started += instance.OnResetCauldron;
                 @ResetCauldron.performed += instance.OnResetCauldron;
                 @ResetCauldron.canceled += instance.OnResetCauldron;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -288,5 +327,6 @@ public class @PlayerController : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
         void OnResetCauldron(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

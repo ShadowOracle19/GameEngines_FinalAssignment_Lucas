@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8165080794126425235}
   m_Layer: 6
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,8 +113,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5999999, y: 1.6, z: 0.79999995}
-  m_Center: {x: 0, y: -0.3, z: 0}
+  m_Size: {x: 0.800388, y: 0.71887976, z: 0.35775518}
+  m_Center: {x: -0.0015497655, y: -0.15943989, z: -0.014748573}
 --- !u!114 &-2872757458806404876
 MonoBehaviour:
   m_ObjectHideFlags: 0

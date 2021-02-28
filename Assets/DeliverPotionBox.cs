@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeliverPotionBox : MonoBehaviour
 {
@@ -50,9 +51,12 @@ public class DeliverPotionBox : MonoBehaviour
         {
             CalculateColors(potionColor, water.objective);
             
-            Destroy(potion.gameObject, 2);
+            Destroy(potion.gameObject);
             readyToDeliverPotion = false;
             potionInBox = false;
+            SceneManager.LoadScene("Results");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -60,16 +64,17 @@ public class DeliverPotionBox : MonoBehaviour
     {
         Color32 c132 = c1;
         Color32 c232 = c2;
-        
+
+        Debug.Log(c132.ToString());
+        Debug.Log(c232.ToString());
 
         r = Mathf.Abs(c232.r - c132.r);
         g = Mathf.Abs(c232.g - c132.g);
         b = Mathf.Abs(c232.b - c132.b);
         totalPoints = r + g + b;
-        points = (totalPoints / 765.0f) * 100f;
-        points = Mathf.Round(points);
-        Debug.Log(points.ToString());
-        //points = (c232.r - c132.r) + (c232.g - c132.g) + (c232.b - c132.b);
+
+        PlayerPrefs.SetInt("Score", (int)totalPoints);
+
     }
    
 }

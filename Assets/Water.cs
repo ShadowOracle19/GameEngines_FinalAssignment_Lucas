@@ -15,6 +15,7 @@ public class Water : MonoBehaviour
     public GameObject PotionPrefab;
     public Transform potionSpawnPoint;
     public Color32 objective;
+    public Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,17 @@ public class Water : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        ingrediant = other.GetComponent<currentIngrediant>().getCurrentIngrediant();
-        currentIngrediantsAdded.Add(ingrediant);
-        StartCoroutine(changeWaterColor());
-        Destroy(other.gameObject, 1);
+        if(other.gameObject.CompareTag("Ingredient"))
+        {
+            ingrediant = other.GetComponent<currentIngrediant>().getCurrentIngrediant();
+            currentIngrediantsAdded.Add(ingrediant);
+            StartCoroutine(changeWaterColor());
+            Destroy(other.gameObject, 1);
+        }
+        else if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.transform.position = spawnPoint.transform.position;
+        }
     }
 
     IEnumerator changeWaterColor()
