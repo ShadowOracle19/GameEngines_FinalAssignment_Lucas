@@ -10,6 +10,7 @@ public class PointsGained : MonoBehaviour
     void Awake()
     {
         playerPoints = PlayerPrefs.GetInt("Score");
+        Debug.Log(playerPoints.ToString());
     }
 
     // Update is called once per frame

@@ -46,6 +46,10 @@ public class Water : MonoBehaviour
         {
             other.gameObject.transform.position = spawnPoint.transform.position;
         }
+        else if(other.gameObject.CompareTag("Potion"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator changeWaterColor()
