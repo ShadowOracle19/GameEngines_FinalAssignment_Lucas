@@ -17,4 +17,5 @@ MonoBehaviour:
   ingrediants:
   - {fileID: 11400000, guid: cfda29368c428f145b0299c2fc57187c, type: 2}
   - {fileID: 11400000, guid: cfda29368c428f145b0299c2fc57187c, type: 2}
+  sellAmount: 200
   finalProductPrefab: {fileID: 2478464900697377290, guid: 194e581f3216faf4492cc3403063f361, type: 3}

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public float money = 0;
+    public int money = 0;
+    public TextMeshProUGUI goldText;
 
     private static GameManager _instance;
 
@@ -12,7 +14,15 @@ public class GameManager : MonoBehaviour
     {
         get { return _instance; }
     }
-
+    private void Start()
+    {
+        money = PlayerPrefs.GetInt("Gold");
+        if (money == 0)
+        {
+            money = 150;
+            PlayerPrefs.SetInt("Gold", money);
+        }
+    }
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -28,6 +38,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        goldText.SetText("Gold: " + money.ToString());
     }
 }

@@ -9,7 +9,6 @@ public class DeliverPotionBox : MonoBehaviour
     public bool readyToDeliverPotion;
     public PotionBrewing water;
     PotionBottle potion;
-    public float points = 100;
 
     private GameManager gameManager;
 
@@ -49,11 +48,11 @@ public class DeliverPotionBox : MonoBehaviour
     public void DeliverPotion()
     {
         if(readyToDeliverPotion)
-        {
+        {            
+            gameManager.money += potion.recipe.sellAmount;
             Destroy(potion.gameObject);
             readyToDeliverPotion = false;
             potionInBox = false;
-            gameManager.money += 10;
         }
     }
 }

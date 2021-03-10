@@ -18,4 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 984673de6cccf674a842d59079b9cf40, type: 2}
   - {fileID: 11400000, guid: f656214eb2d072a44abee28d04189708, type: 2}
   - {fileID: 11400000, guid: f656214eb2d072a44abee28d04189708, type: 2}
+  sellAmount: 250
   finalProductPrefab: {fileID: 2478464900697377290, guid: d5b70fa7ce21a7b45b6454a696c0e04b, type: 3}

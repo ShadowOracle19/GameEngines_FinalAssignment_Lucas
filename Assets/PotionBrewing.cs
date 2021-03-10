@@ -81,26 +81,19 @@ public class PotionBrewing : MonoBehaviour
         
         for (int i = 0; i < recipies.Length; i++)//goes through the list of recipies
         {
-            Debug.Log(i);
-            isRecipeCorrect = true;
-            //if (recipies[i].ingrediants.Count != currentIngrediantsAdded.Count)//checks if the number of items in the pot are the same as the recipies
-            //{
-            //    Debug.Log("To many ingredients");
-            //    return;
-            //}
-                
-
+            
             for (int j = 0; j < recipies[i].ingrediants.Count; j++)//cycles through the ingredients list and checks if the ingredients match
             {
-                Debug.Log(j);
+                
                 if (recipies[i].ingrediants[j].itemName != currentIngrediantsAdded[j].itemName)//checks if the ingredient is right
                 {
-                    Debug.Log("ingredients incorrect");
                     isRecipeCorrect = false;
                     break;
                 }
+                isRecipeCorrect = true;
             }
-            if(isRecipeCorrect)
+            
+            if (isRecipeCorrect)
             {              
                 Instantiate(recipies[i].finalProductPrefab, new Vector3(
                     potionSpawnPoint.position.x, 
@@ -109,6 +102,7 @@ public class PotionBrewing : MonoBehaviour
                     Quaternion.identity );
 
                 EmptyCauldron();
+                break;
             }
         }
         
