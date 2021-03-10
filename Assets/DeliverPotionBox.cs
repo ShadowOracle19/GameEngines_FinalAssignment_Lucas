@@ -7,15 +7,17 @@ public class DeliverPotionBox : MonoBehaviour
 {
     bool potionInBox;
     public bool readyToDeliverPotion;
-    public Water water;
+    public PotionBrewing water;
     PotionBottle potion;
     public float points = 100;
-    Color potionColor;
-    public float r, g, b, totalPoints;
+
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        water = FindObjectOfType<Water>();
+        gameManager = GameManager.Instance;
+        water = FindObjectOfType<PotionBrewing>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,6 @@ public class DeliverPotionBox : MonoBehaviour
         {
             potionInBox = true;
             potion = other.gameObject.GetComponent<PotionBottle>();
-            potionColor = potion.potionFillColor;
         }
         
     }
@@ -49,32 +50,10 @@ public class DeliverPotionBox : MonoBehaviour
     {
         if(readyToDeliverPotion)
         {
-            CalculateColors(potionColor, water.objective);
-            
             Destroy(potion.gameObject);
             readyToDeliverPotion = false;
             potionInBox = false;
-            SceneManager.LoadScene("Results");
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            gameManager.money += 10;
         }
     }
-
-    public void CalculateColors(Color c1, Color c2)
-    {
-        Color32 c132 = c1;
-        Color32 c232 = c2;
-
-        Debug.Log(c132.ToString());
-        Debug.Log(c232.ToString());
-
-        r = Mathf.Abs(c232.r - c132.r);
-        g = Mathf.Abs(c232.g - c132.g);
-        b = Mathf.Abs(c232.b - c132.b);
-        totalPoints = r + g + b;
-
-        PlayerPrefs.SetInt("Score", (int)totalPoints);
-
-    }
-   
 }

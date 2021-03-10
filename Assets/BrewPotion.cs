@@ -7,7 +7,7 @@ public class BrewPotion : MonoBehaviour
     private InputManager inputManager;
     public GameObject brewPotionWindow;
     public bool isInRange = false;
-    public Water cauldronWater;
+    public PotionBrewing cauldronWater;
 
     // Start is called before the first frame update
     void Start()

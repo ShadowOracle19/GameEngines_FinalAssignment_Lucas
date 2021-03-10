@@ -7,7 +7,7 @@ public class ResetCauldron : MonoBehaviour
     private InputManager inputManager;
     public GameObject resetCauldronWindow;
     public bool isInRange = false;
-    public Water cauldronWater;
+    public PotionBrewing cauldronWater;
 
     // Start is called before the first frame update
     void Start()
