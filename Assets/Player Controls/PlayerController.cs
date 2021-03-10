@@ -65,6 +65,14 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RecipeScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""630a2a45-9d9f-4c0e-87cf-c3dd7c9e825a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -188,6 +196,17 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c503895-738b-4e92-b784-a739905b7978"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RecipeScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +221,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_ResetCauldron = m_Player.FindAction("ResetCauldron", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_RecipeScreen = m_Player.FindAction("RecipeScreen", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -257,6 +277,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_ResetCauldron;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_RecipeScreen;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -267,6 +288,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @ResetCauldron => m_Wrapper.m_Player_ResetCauldron;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @RecipeScreen => m_Wrapper.m_Player_RecipeScreen;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +316,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @RecipeScreen.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRecipeScreen;
+                @RecipeScreen.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRecipeScreen;
+                @RecipeScreen.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRecipeScreen;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -316,6 +341,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @RecipeScreen.started += instance.OnRecipeScreen;
+                @RecipeScreen.performed += instance.OnRecipeScreen;
+                @RecipeScreen.canceled += instance.OnRecipeScreen;
             }
         }
     }
@@ -328,5 +356,6 @@ public class @PlayerController : IInputActionCollection, IDisposable
         void OnPickup(InputAction.CallbackContext context);
         void OnResetCauldron(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnRecipeScreen(InputAction.CallbackContext context);
     }
 }
