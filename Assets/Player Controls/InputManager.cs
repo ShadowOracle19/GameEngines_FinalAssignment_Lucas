@@ -68,4 +68,9 @@ public class InputManager : MonoBehaviour
     {
         return playerController.Player.Pause.triggered;
     }
+
+    public bool PlayerPressedTab()
+    {
+        return playerController.Player.RecipeScreen.triggered;
+    }
 }

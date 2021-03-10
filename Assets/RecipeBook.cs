@@ -7,17 +7,23 @@ public class RecipeBook : MonoBehaviour
 {
     public PotionBrewing potionBrewing;
     public GameObject buttonPrefab;
-    public GameObject recipeWindow;
+    public GameObject potionButtonsWindow;
     public GameObject ingredientListWindow;
     public GameObject ingredientTextPrefab;
     public GameObject[] buttons;
+    public GameObject recipeWindow;
+    public bool recipeWindowActive = false;
+
+    private InputManager inputManager;
 
     private void Start()
     {
+        recipeWindow.SetActive(recipeWindowActive);
+        inputManager = InputManager.Instance;
         buttons = new GameObject[potionBrewing.recipies.Length];
         for (int i = 0; i < potionBrewing.recipies.Length; i++)
         {
-            buttons[i] = Instantiate(buttonPrefab, recipeWindow.transform);
+            buttons[i] = Instantiate(buttonPrefab, potionButtonsWindow.transform);
             buttons[i].name = potionBrewing.recipies[i].itemName;
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = potionBrewing.recipies[i].itemName;
         }
@@ -31,7 +37,24 @@ public class RecipeBook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(inputManager.PlayerPressedTab())
+        {
+            Debug.Log("tab pressed");
+            recipeWindowActive = !recipeWindowActive;
+            if (recipeWindowActive == true)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+            }
+            recipeWindow.SetActive(recipeWindowActive);
+            
+        }
     }
 
     public void TaskOnClick(int buttonIndex)
