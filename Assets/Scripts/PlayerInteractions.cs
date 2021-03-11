@@ -56,10 +56,12 @@ public class PlayerInteractions : MonoBehaviour
         if(Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, 1 << interactableLayerIndex))
         {
             lookObject = hit.collider.transform.root.gameObject;
+            
         }
         else
         {
             lookObject = null;
+            
         }
 
         //if pickup button is pressed

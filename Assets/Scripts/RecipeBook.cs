@@ -43,11 +43,13 @@ public class RecipeBook : MonoBehaviour
             recipeWindowActive = !recipeWindowActive;
             if (recipeWindowActive == true)
             {
+                Time.timeScale = 0.00001f;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             else
             {
+                Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
 

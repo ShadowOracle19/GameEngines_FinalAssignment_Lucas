@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetCauldron : MonoBehaviour
+public class BrewPotion : MonoBehaviour
 {
     private InputManager inputManager;
-    public GameObject resetCauldronWindow;
+    public GameObject brewPotionWindow;
     public bool isInRange = false;
     public PotionBrewing cauldronWater;
 
@@ -18,24 +18,32 @@ public class ResetCauldron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputManager.PlayerPressedReset())
+        if (inputManager.PlayerPressedReset())
         {
-            if(isInRange)
+            if (isInRange)
             {
-                cauldronWater.EmptyCauldron();
+                cauldronWater.BrewPotion();
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        resetCauldronWindow.SetActive(true);
-        isInRange = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            brewPotionWindow.SetActive(true);
+            isInRange = true;
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
     {
-        resetCauldronWindow.SetActive(false);
-        isInRange = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            brewPotionWindow.SetActive(false);
+            isInRange = false;
+        }
+            
     }
 }

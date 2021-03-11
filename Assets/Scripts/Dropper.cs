@@ -13,4 +13,5 @@ public class Dropper : MonoBehaviour
             Instantiate(ingrediantToDrop.ingrediantPrefab, spawnerDropPoint.transform.position, Quaternion.identity);
         }
     }
+    
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5700698943965614551}
   - component: {fileID: -2872757458806404876}
   - component: {fileID: 8165080794126425235}
+  - component: {fileID: 8194115649110840533}
   m_Layer: 6
   m_Name: Mushroom
   m_TagString: Ingredient
@@ -113,8 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.800388, y: 0.71887976, z: 0.35775518}
-  m_Center: {x: -0.0015497655, y: -0.15943989, z: -0.014748573}
+  m_Size: {x: 0.800388, y: 0.48493177, z: 0.35775518}
+  m_Center: {x: -0.0015497804, y: -0.042465895, z: -0.014748573}
 --- !u!114 &-2872757458806404876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingrediant: {fileID: 11400000, guid: c6822bf9a01f9ad429112b1c060672ba, type: 2}
+--- !u!65 &8194115649110840533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716511171990734871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30709743, y: 0.26882714, z: 0.39999998}
+  m_Center: {x: -0.020596027, y: -0.41558644, z: 0}

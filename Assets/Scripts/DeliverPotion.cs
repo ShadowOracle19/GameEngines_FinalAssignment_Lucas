@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrewPotion : MonoBehaviour
+public class DeliverPotion : MonoBehaviour
 {
     private InputManager inputManager;
-    public GameObject brewPotionWindow;
+    public GameObject deliverPotionWindow;
     public bool isInRange = false;
-    public PotionBrewing cauldronWater;
+    public DeliverPotionBox potionBox;
 
     // Start is called before the first frame update
     void Start()
@@ -22,20 +22,28 @@ public class BrewPotion : MonoBehaviour
         {
             if (isInRange)
             {
-                cauldronWater.BrewPotion();
+                potionBox.readyToDeliverPotion = true;
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        brewPotionWindow.SetActive(true);
-        isInRange = true;
+        if(other.gameObject.CompareTag("Player"))
+        {
+            deliverPotionWindow.SetActive(true);
+            isInRange = true;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        brewPotionWindow.SetActive(false);
-        isInRange = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            deliverPotionWindow.SetActive(false);
+            isInRange = false;
+        }
+            
     }
 }
