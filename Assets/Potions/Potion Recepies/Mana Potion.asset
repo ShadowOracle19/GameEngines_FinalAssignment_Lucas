@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfbccb7d5842f649aee6ef7c3c82d0d, type: 3}
   m_Name: Mana Potion
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 42bbb355e8cb3044a978db82b26257c7, type: 3}
   itemName: Mana Potion
   ingrediants:
   - {fileID: 11400000, guid: cfda29368c428f145b0299c2fc57187c, type: 2}
   - {fileID: 11400000, guid: cfda29368c428f145b0299c2fc57187c, type: 2}
-  sellAmount: 200
+  sellAmount: 25
   finalProductPrefab: {fileID: 2478464900697377290, guid: 194e581f3216faf4492cc3403063f361, type: 3}

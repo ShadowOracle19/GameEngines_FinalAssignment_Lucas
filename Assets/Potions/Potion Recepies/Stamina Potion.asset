@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfbccb7d5842f649aee6ef7c3c82d0d, type: 3}
   m_Name: Stamina Potion
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 19e9dbcc43697d3498e292041df9f25d, type: 3}
   itemName: Stamina Potion
   ingrediants:
   - {fileID: 11400000, guid: 7f803afa59526a745b810530ee535464, type: 2}
   - {fileID: 11400000, guid: 945d329b5cb79e04b9d216cec24c9138, type: 2}
-  sellAmount: 150
+  sellAmount: 25
   finalProductPrefab: {fileID: 2478464900697377290, guid: e6a55799b1c818f48b9d25a62c32c8be, type: 3}

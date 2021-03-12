@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f629dc1a1b9e0f64998d8b80e56b51a7, type: 3}
   m_Name: BottledSlime
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 3d146e80b843b7d4ebb93f64f48b40d4, type: 3}
   itemName: BottledSlime
   ingrediantPrefab: {fileID: 2170795184487285522, guid: 983498f098befa841acda2a215977ab1, type: 3}
   color: {r: 0.017205596, g: 1, b: 0, a: 1}

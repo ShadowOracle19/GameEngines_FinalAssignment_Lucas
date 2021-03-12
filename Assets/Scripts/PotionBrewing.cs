@@ -50,7 +50,7 @@ public class PotionBrewing : MonoBehaviour
             ingrediant = other.GetComponent<currentIngrediant>().getCurrentIngrediant();
             currentIngrediantsAdded.Add(ingrediant);
             StartCoroutine(changeWaterColor());
-            Destroy(other);
+            Destroy(other, 0.5f);
         }
         else if (other.CompareTag("Player"))
         {

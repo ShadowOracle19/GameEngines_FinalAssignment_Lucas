@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f629dc1a1b9e0f64998d8b80e56b51a7, type: 3}
   m_Name: Bone
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  itemName: Bone
+  itemIcon: {fileID: 21300000, guid: 1a267fe64a5788b4e832dcd70c229774, type: 3}
+  itemName: Monster Bone
   ingrediantPrefab: {fileID: 5665675663888107450, guid: f5fc98233e254bc419818fed2818299b, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}

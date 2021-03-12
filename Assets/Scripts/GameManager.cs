@@ -39,5 +39,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         goldText.SetText("Gold: " + money.ToString());
+        PlayerPrefs.SetInt("Gold", money);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f629dc1a1b9e0f64998d8b80e56b51a7, type: 3}
   m_Name: YellowFlower
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 2def312eb6e75c84b8dc6a1c6d9200c5, type: 3}
   itemName: YellowFlower
   ingrediantPrefab: {fileID: 1596224538875897046, guid: 7e53c965fe3ea464cb76680f3fe76147, type: 3}
   color: {r: 1, g: 0.90713394, b: 0, a: 1}
