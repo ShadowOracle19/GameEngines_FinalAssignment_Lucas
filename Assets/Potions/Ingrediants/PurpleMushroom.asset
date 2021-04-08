@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PurpleMushroom
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 6170c0131e552d340bd3257951d3fb5f, type: 3}
-  itemName: PurpleMushroom
+  itemName: Purple Mushroom
   ingrediantPrefab: {fileID: 3716511171990734871, guid: 98c45e8629d44514bac749c65a9d5a63, type: 3}
   color: {r: 0.5809746, g: 0, b: 1, a: 1}

@@ -9,10 +9,12 @@ public class PlayerInteractions : MonoBehaviour
     [Header("InteractableInfo")]
     public float sphereCastRadius = 0.5f;
     public int interactableLayerIndex;
+    public int interactableLayerIndexMix;
     private Vector3 raycastPos;
     public GameObject lookObject;
     private PhysicsObject physicsObject;
     private Camera mainCamera;
+    public GameObject mixWindow;
 
     [Header("Pickup")]
     [SerializeField]
@@ -58,14 +60,18 @@ public class PlayerInteractions : MonoBehaviour
             lookObject = hit.collider.transform.root.gameObject;
             
         }
+        else if(Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, 1 << interactableLayerIndexMix))
+        {
+            mixWindow.SetActive(true);
+        }
         else
         {
             lookObject = null;
-            
+            mixWindow.SetActive(false);
         }
 
         //if pickup button is pressed
-        if(inputManager.PlayerPressedPickup())
+        if (inputManager.PlayerPressedPickup())
         {
             //and we are not holding anything
             if(currentlyPickUpObject == null)

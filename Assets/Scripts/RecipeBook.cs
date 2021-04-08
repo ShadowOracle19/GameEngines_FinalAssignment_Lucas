@@ -39,7 +39,7 @@ public class RecipeBook : MonoBehaviour
     {
         if(inputManager.PlayerPressedTab())
         {
-            Debug.Log("tab pressed");
+
             recipeWindowActive = !recipeWindowActive;
             if (recipeWindowActive == true)
             {
@@ -65,7 +65,6 @@ public class RecipeBook : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        Debug.Log("You have clicked the button #" + buttonIndex, buttons[buttonIndex]);
         for (int i = 0; i < potionBrewing.recipies[buttonIndex].ingrediants.Count; i++)
         {
             var ingredientText = Instantiate(ingredientTextPrefab, ingredientListWindow.transform);

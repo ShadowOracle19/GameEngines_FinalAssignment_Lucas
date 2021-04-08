@@ -19,10 +19,12 @@ public class DeliverPotionBox : MonoBehaviour
     public Recipies desiredPotion;
     public int randomPotion;
     public int amountNeeded;
-    public int goldGiven;
+    public float goldGiven;
+    public int skillPointsGiven;
     public TextMeshPro potionName;
     public TextMeshPro reward;
     public TextMeshPro amountNeededText;
+    public TextMeshPro skillText;
     public GameObject potionIcon;
 
     // Start is called before the first frame update
@@ -30,14 +32,7 @@ public class DeliverPotionBox : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         water = FindObjectOfType<PotionBrewing>();
-        randomPotion = Random.Range(0, water.recipies.Length);
-        desiredPotion = water.recipies[randomPotion];
-        amountNeeded = Random.Range(1, 3);
-        goldGiven  = Random.Range(25, 100) * amountNeeded;
-        potionName.text = desiredPotion.itemName;
-        reward.text = "Reward: " + goldGiven.ToString();
-        potionIcon.GetComponent<SpriteRenderer>().sprite = desiredPotion.itemIcon;
-        amountNeededText.text = "Amount Needed: " + amountNeeded.ToString();
+        GiveTask();
     }
 
     // Update is called once per frame
@@ -76,6 +71,8 @@ public class DeliverPotionBox : MonoBehaviour
                 //reset task
                 //give reward
                 gameManager.money += goldGiven;
+                gameManager.TasksCompleted++;
+                gameManager.skillPoints = skillPointsGiven;
                 GiveTask();
             }
             else
@@ -100,10 +97,13 @@ public class DeliverPotionBox : MonoBehaviour
         randomPotion = Random.Range(0, water.recipies.Length);
         desiredPotion = water.recipies[randomPotion];
         amountNeeded = Random.Range(1, 3);
-        goldGiven = Random.Range(25, 100) * amountNeeded;
+        skillPointsGiven = amountNeeded;
+        goldGiven = Random.Range(25, 100);
+        goldGiven = goldGiven * amountNeeded * (gameManager.potionSellAmountLevel / 10) + goldGiven;
         potionName.text = desiredPotion.itemName;
-        reward.text = "Reward: " + goldGiven.ToString();
         potionIcon.GetComponent<SpriteRenderer>().sprite = desiredPotion.itemIcon;
         amountNeededText.text = "Amount Needed: " + amountNeeded.ToString();
+        reward.text = "Reward: " + goldGiven.ToString();
+        skillText.text = "Skill Points: " + skillPointsGiven.ToString();
     }
 }

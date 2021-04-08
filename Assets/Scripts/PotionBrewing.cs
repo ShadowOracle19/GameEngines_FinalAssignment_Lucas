@@ -17,7 +17,7 @@ public class PotionBrewing : MonoBehaviour
     public Recipies[] recipies;
     public bool isRecipeCorrect;
     public GameObject cauldronWater;
-
+    public GameObject ingredientListWindow;
     public static PotionBrewing Instance
     {
         get { return _instance; }
@@ -71,6 +71,10 @@ public class PotionBrewing : MonoBehaviour
 
     public void EmptyCauldron()
     {
+        foreach (Transform child in ingredientListWindow.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         currentIngrediantsAdded.Clear();
         currentColor = originalColor;
         cauldronWater.GetComponent<Renderer>().material.SetColor("_Color", currentColor);

@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3081279061084533193}
   - component: {fileID: 947464232035288323}
   - component: {fileID: 1551059304455317942}
-  - component: {fileID: 5348175630832778144}
   - component: {fileID: 2761221307978550083}
   - component: {fileID: 7363610332815431368}
-  - component: {fileID: 138844753728246887}
+  - component: {fileID: 8211364474691388241}
   m_Layer: 6
   m_Name: YellowFlower
   m_TagString: Ingredient
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1596224538875897046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,19 +104,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5348175630832778144
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596224538875897046}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.42, y: 0.2907461, z: 0.20947361}
-  m_Center: {x: 0, y: -0.005373001, z: -0.006143093}
 --- !u!114 &2761221307978550083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,8 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingrediant: {fileID: 11400000, guid: 945d329b5cb79e04b9d216cec24c9138, type: 2}
---- !u!65 &138844753728246887
-BoxCollider:
+--- !u!64 &8211364474691388241
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,6 +143,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.15839767, y: 0.34490317, z: 0.09986591}
-  m_Center: {x: -0.005651474, y: -0.31754836, z: 0.0071759224}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4664382578460312087, guid: 1db76bb45f55d224cb90361efb9b033d, type: 3}

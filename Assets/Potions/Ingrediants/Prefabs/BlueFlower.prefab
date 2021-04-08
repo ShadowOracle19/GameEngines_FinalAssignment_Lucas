@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2359604370211244055}
   - component: {fileID: 529745688544050397}
   - component: {fileID: 2294806913141177161}
-  - component: {fileID: 3988251208786692214}
   - component: {fileID: 2815946096383614486}
   - component: {fileID: 7087482011411037203}
+  - component: {fileID: -8447998648061390490}
   m_Layer: 6
   m_Name: BlueFlower
   m_TagString: Ingredient
@@ -105,19 +105,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3988251208786692214
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043214304242162952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6999999, y: 1, z: 0.29999998}
-  m_Center: {x: -0.049999997, y: -0.2, z: 0}
 --- !u!114 &2815946096383614486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingrediant: {fileID: 11400000, guid: cfda29368c428f145b0299c2fc57187c, type: 2}
+--- !u!64 &-8447998648061390490
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043214304242162952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4664382578460312087, guid: 0a505f0266a40bf4e8d8330e3423df71, type: 3}

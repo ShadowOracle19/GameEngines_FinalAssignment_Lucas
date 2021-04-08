@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4421079313156596282}
   - component: {fileID: 1927016722327803632}
   - component: {fileID: -3043569769692713286}
-  - component: {fileID: -8262504488060027098}
   - component: {fileID: -1115701482659500146}
   - component: {fileID: -2620839845052395933}
+  - component: {fileID: 6208489157096276222}
   m_Layer: 6
   m_Name: BlackRose
   m_TagString: Ingredient
@@ -103,19 +103,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-8262504488060027098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125783099362096933}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 1.0999999, z: 0.29999998}
-  m_Center: {x: -0.15, y: -0.15, z: 0}
 --- !u!114 &-1115701482659500146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +132,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingrediant: {fileID: 11400000, guid: 255402440271b894098e0e8d7149cb56, type: 2}
+--- !u!64 &6208489157096276222
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125783099362096933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4664382578460312087, guid: 72dd641f03ad0bd428761bc6e1487f9e, type: 3}
