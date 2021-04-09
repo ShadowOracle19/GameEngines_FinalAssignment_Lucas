@@ -26,6 +26,7 @@ public class DeliverPotionBox : MonoBehaviour
     public TextMeshPro amountNeededText;
     public TextMeshPro skillText;
     public GameObject potionIcon;
+    public GameObject potionEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -77,18 +78,26 @@ public class DeliverPotionBox : MonoBehaviour
             }
             else
             {
+                var effect = Instantiate(potionEffect);
+                effect.gameObject.transform.position = potion.gameObject.transform.position;
+                effect.GetComponent<ParticleSystem>().Emit(1000);
                 amountNeededText.text = "Amount Needed: " + amountNeeded.ToString();
                 Destroy(potion.gameObject);
                 readyToDeliverPotion = false;
                 potionInBox = false;
+                effect.GetComponent<ParticleSystem>().Stop();
             }
         }
         else if(readyToDeliverPotion)
-        {            
+        {
+            var effect = Instantiate(potionEffect);
+            effect.gameObject.transform.position = potion.gameObject.transform.position;
+            effect.GetComponent<ParticleSystem>().Emit(1000);
             gameManager.money += potion.recipe.sellAmount;
             Destroy(potion.gameObject);
             readyToDeliverPotion = false;
             potionInBox = false;
+            effect.GetComponent<ParticleSystem>().Stop();
         }
     }
 
